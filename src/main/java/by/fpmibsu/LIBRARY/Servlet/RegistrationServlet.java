@@ -1,0 +1,36 @@
+package by.fpmibsu.LIBRARY.Servlet;
+
+import by.fpmibsu.LIBRARY.DTO.CreateUserDto;
+import by.fpmibsu.LIBRARY.Service.UserService;
+import by.fpmibsu.LIBRARY.util.JspHelper;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/registration")
+public class RegistrationServlet extends HttpServlet {
+
+    private final UserService userService = UserService.getInstance();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher(JspHelper.getPath("registration"))
+                .forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        var userDto = CreateUserDto.builder()
+                .login(req.getParameter("username"))
+                .password(req.getParameter("password"))
+                .mail(req.getParameter("email"))
+                .build();
+
+        UserService.create(userDto);
+        resp.sendRedirect("/JSP/Entrance.jsp");
+    }
+}
