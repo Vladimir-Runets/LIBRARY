@@ -1,9 +1,13 @@
 package by.fpmibsu.LIBRARY.entity;
 
+import java.awt.*;
+
 public class Literature {
     private int literatureID;
     private int authorLiteratureID;
     private int reviewLiteratureID;
+    private Image image;
+    private String genre;
     private String title;
     public User author;
     public Reviews review;
@@ -12,23 +16,56 @@ public class Literature {
     private String addingTime;
     public Literature(){}
 
+    public Literature(int literatureID, String title, int authorLiteratureID, int reviewLiteratureID, String text, int amountOfReads, String addingTime, String genre) {
+        this.literatureID = literatureID;
+        this.authorLiteratureID = authorLiteratureID;
+        this.reviewLiteratureID = reviewLiteratureID;
+        this.genre = genre;
+        this.title = title;
+        this.text = text;
+        this.amountOfReads = amountOfReads;
+        this.addingTime = addingTime;
+    }
+
+    public Literature(int literatureID, String title, int authorLiteratureID, int reviewLiteratureID, String text, int amountOfReads, String addingTime, Image image, String genre) {
+        this.literatureID = literatureID;
+        this.authorLiteratureID = authorLiteratureID;
+        this.reviewLiteratureID = reviewLiteratureID;
+        this.image = image;
+        this.genre = genre;
+        this.title = title;
+        this.text = text;
+        this.amountOfReads = amountOfReads;
+        this.addingTime = addingTime;
+    }
+
     public Literature(String title, int authorLiteratureID, int reviewLiteratureID, String text,
-                      int amountOfReads, String addingTime) {
+                      int amountOfReads, String addingTime, Image image, String genre) {
         this.title = title;
         this.authorLiteratureID = authorLiteratureID;
         this.reviewLiteratureID = reviewLiteratureID;
         this.text = text;
         this.amountOfReads = amountOfReads;
         this.addingTime = addingTime;
+        this.image=image;
+        this.genre=genre;
     }
 
-    public Literature(String title, User author, Reviews review, String text, int amountOfReads, String addingTime) {
+    public Literature(String title, User author, Reviews review, String text, int amountOfReads, String addingTime,Image image,String genre) {
         this.title = title;
         this.author = author;
         this.review = review;
         this.text = text;
         this.amountOfReads = amountOfReads;
         this.addingTime = addingTime;
+        this.image=image;
+        this.genre=genre;
+    }
+    public Image getImage(){
+        return image;
+    }
+    public String getGenre(){
+        return genre;
     }
 
     public String getTitle() {
@@ -114,4 +151,5 @@ public class Literature {
                 ", amountOfReads=" + amountOfReads +
                 '}';
     }
+
 }

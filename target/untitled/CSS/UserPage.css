@@ -135,3 +135,35 @@ a3{
     left:500pt;
     font-size: 25pt;
 }
+
+.success-message {
+    background-color: #333333;
+    background-position: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button {
+    position: absolute;
+    color: white;
+    top: 3px;
+    right: 4px;
+    font-size: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.text-of-success{
+    position: absolute;
+    font-size: 30px;
+    color: white;
+    top:80%;
+}

@@ -12,6 +12,7 @@ public class UserDAO implements GenericDAO<Integer, User> {
     private static final UserDAO INSTANCE = new UserDAO();
 
     private static final String SAVE_SQL = "INSERT INTO users (login, password, mail) VALUES (?,?,?)";
+    private static final String GET_BY_EMAIL_AND_PASSWORD_SQL = "SELECT * FROM users WHERE login = ? AND password = ?";
 
     public static UserDAO getInstance(){
         return INSTANCE;
@@ -49,5 +50,31 @@ public class UserDAO implements GenericDAO<Integer, User> {
 
             return entity;
         }
+    }
+    public Optional<User> findByEmailAndPassword(String login, String password) {
+        try(var connection = ConnectionManager.get();
+            var preparedStatement = connection.prepareStatement(GET_BY_EMAIL_AND_PASSWORD_SQL)) {
+            preparedStatement.setString(1, login);
+            preparedStatement.setString(2, password);
+
+            var resultSet = preparedStatement.executeQuery();
+            User user = null;
+            if(resultSet.next()){
+                user = buildEntity(resultSet);
+            }
+
+            return Optional.ofNullable(user);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private User buildEntity(ResultSet resultSet) throws java.sql.SQLException{
+        return User.builder()
+                .UserID(resultSet.getObject("user_id", Integer.class))
+                .login(resultSet.getObject("login", String.class))
+                .password(resultSet.getObject("password", String.class))
+                .mail(resultSet.getObject("mail", String.class))
+                .build();
     }
 }

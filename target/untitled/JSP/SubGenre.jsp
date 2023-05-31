@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../CSS/SubGenre.css" type ="text/css"/>
 </head>
 <body>
+
 <a>
     <img src="../Images/image_book.jfif " onclick="expandImage(this)"><p1> Дата издания: <br> Автор:  <br> Жанр: </p1>
     <p2><details>

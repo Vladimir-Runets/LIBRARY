@@ -2,6 +2,7 @@ package by.fpmibsu.LIBRARY.Servlet;
 
 import by.fpmibsu.LIBRARY.DTO.CreateUserDto;
 import by.fpmibsu.LIBRARY.Service.UserService;
+import by.fpmibsu.LIBRARY.exception.ValidationException;
 import by.fpmibsu.LIBRARY.util.JspHelper;
 
 import javax.servlet.ServletException;
@@ -18,7 +19,7 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(JspHelper.getPath("registration"))
+        req.getRequestDispatcher(JspHelper.getPath("Registration"))
                 .forward(req, resp);
     }
 
@@ -29,8 +30,12 @@ public class RegistrationServlet extends HttpServlet {
                 .password(req.getParameter("password"))
                 .mail(req.getParameter("email"))
                 .build();
-
-        UserService.create(userDto);
-        resp.sendRedirect("/JSP/Entrance.jsp");
+        try {
+            userService.create(userDto);
+            resp.sendRedirect("/JSP/UserPage.jsp");
+        }catch (ValidationException exception){
+            req.setAttribute("errors",exception.getErrors());
+            doGet(req, resp);
+        }
     }
 }

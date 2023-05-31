@@ -1,4 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String prevPage = request.getHeader("Referer");
+    if(prevPage != null && prevPage.endsWith("Registration.jsp")){
+%>
+<div class="success-message">
+    <img src="../Images/green-tick.gif" alt="Success"  width="300" height=auto top="30%" left="50%">
+    <button class="close-button" onclick="closeForm()">×</button>
+    <span class="text-of-success">Регистрация выполнена успешно!</span>
+</div>
+<%
+    }
+%>
 <head>
     <meta charset="UTF-8">
     <title>Library</title>
@@ -27,6 +39,7 @@
     <button> Продолжить прочтение</button>
 </a2>
 <a3> ..... </a3>
+<script src="../JS/UserPage.js"></script>
 </body>
 </html>
 

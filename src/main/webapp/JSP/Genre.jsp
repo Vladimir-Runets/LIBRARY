@@ -1,3 +1,10 @@
+<%@ page import="by.fpmibsu.LIBRARY.Service.LiteratureService" %>
+<%@ page import="by.fpmibsu.LIBRARY.entity.Literature" %>
+<%@ page import="java.util.List" %>
+<%@ page import="by.fpmibsu.LIBRARY.DTO.LiteratureDto" %>
+<%@ page import="by.fpmibsu.LIBRARY.DAO.LiteratureDAO" %>
+<%@ page import="java.nio.file.Files" %>
+<%@ page import="java.io.FileWriter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -26,7 +33,8 @@
     </ul>
 </div>
 <a>
-    <img src="../Images/image_book.jfif " onclick="expandImage(this)"><p1> Дата издания: <br> Автор:  <br> Жанр: </p1>
+    <img src="../Images/image_book.jfif " onclick="expandImage(this)">
+        <p1> Дата издания: <br> Автор:  <br> Жанр: </p1>
     <p2><details>
         <summary>Описание книги</summary>
         <p>.............................................................................................................................................</p>
@@ -34,6 +42,8 @@
     <p3><button style=" width: 170pt; height: 30pt; background-color: whitesmoke;font-size: 15px; border-color: lightgrey;"
     >Начать читать</button></p3>
 </a>
+
+
 <script src="../JS/Genre.js"></script>
 <a8> ..... </a8>
 </body>
