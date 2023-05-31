@@ -1,6 +1,5 @@
 package by.fpmibsu.LIBRARY.DAO;
 
-import java.awt.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ public class LiteratureDAO implements GenericDAO<Integer, Literature> {
     private static final LiteratureDAO INSTANCE = new LiteratureDAO();
 
     private static final String FIND_ALL = "SELECT * FROM literature";
-    private static final String SAVE_SQL = "INSERT INTO literature (title,author_id,review_id,text,amount_of_read,adding_time,image,genre) VALUES (?,?,?)";
+    private static final String SAVE_SQL = "INSERT INTO literature (title,author_id,review_id,text,amount_of_read,adding_time,image,genre) VALUES (?,?,?,?,?,?,?,?)";
 
     public static LiteratureDAO getInstance(){
         return INSTANCE;
@@ -39,7 +38,7 @@ public class LiteratureDAO implements GenericDAO<Integer, Literature> {
 
     public List<Literature> findAll(){
         try(var connection = ConnectionManager.get();
-        var preparedStatement = connection.prepareStatement(FIND_ALL)) {
+            var preparedStatement = connection.prepareStatement(FIND_ALL)) {
             var resultSet = preparedStatement.executeQuery();
             List<Literature> allLiterature = new ArrayList<>();
             while (resultSet.next()){

@@ -3,10 +3,7 @@ package by.fpmibsu.LIBRARY.Service;
 import by.fpmibsu.LIBRARY.DAO.LiteratureDAO;
 import by.fpmibsu.LIBRARY.DTO.LiteratureDto;
 import by.fpmibsu.LIBRARY.entity.Literature;
-import by.fpmibsu.LIBRARY.entity.Reviews;
-import by.fpmibsu.LIBRARY.entity.User;
 
-import java.awt.*;
 import java.util.List;
 import java.util.stream.Collectors;
 

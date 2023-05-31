@@ -20,6 +20,12 @@ public class Complaints {
         this.textOfComplaint = textOfComplaint;
     }
 
+    public Complaints(int complaintID, int authorOfComplaintID, String textOfComplaint) {
+        this.complaintID = complaintID;
+        this.authorOfComplaintID = authorOfComplaintID;
+        this.textOfComplaint = textOfComplaint;
+    }
+
     public User getAuthorOfComplaint() {
         return authorOfComplaint;
     }

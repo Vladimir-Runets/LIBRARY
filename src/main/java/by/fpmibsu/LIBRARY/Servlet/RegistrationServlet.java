@@ -11,10 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.URIParameter;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.xml.sax.ErrorHandler;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
+    private static final Logger logger = LogManager.getLogger(RegistrationServlet.class);
     private final UserService userService = UserService.getInstance();
 
     @Override
@@ -24,7 +30,7 @@ public class RegistrationServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, ValidationException {
         var userDto = CreateUserDto.builder()
                 .login(req.getParameter("username"))
                 .password(req.getParameter("password"))
@@ -36,6 +42,9 @@ public class RegistrationServlet extends HttpServlet {
         }catch (ValidationException exception){
             req.setAttribute("errors",exception.getErrors());
             doGet(req, resp);
+            logger.error(exception);
+            return;
         }
+        logger.info("New listing successfully created");
     }
 }

@@ -1,11 +1,16 @@
+body {
+  background-color: grey;
+}
 #ent_header {
+  color: white;
   position: relative;
   text-align: center;
-  font-size: 24px;
+  font-size: 44px;
   margin-bottom: 20px;
 }
 
 #entrance-form {
+  background-color: whitesmoke;
   width: 50%;
   margin: 50px auto;
   padding: 20px;

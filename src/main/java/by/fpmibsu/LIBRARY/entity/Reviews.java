@@ -21,6 +21,12 @@ public class Reviews {
         this.authorOfReview = authorOfReview;
     }
 
+    public Reviews(int reviewID, String reactions, int authorOfReviewID) {
+        this.reviewID = reviewID;
+        this.reactions = reactions;
+        this.authorOfReviewID = authorOfReviewID;
+    }
+
     public String getReactions() {
         return reactions;
     }

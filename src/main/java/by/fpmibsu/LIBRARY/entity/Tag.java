@@ -10,6 +10,11 @@ public class Tag {
 
     public Tag(int tagID) {this.tagID = tagID;}
 
+    public Tag(int tagID, String category) {
+        this.tagID = tagID;
+        this.category = category;
+    }
+
     public int getTagID() {
         return tagID;
     }

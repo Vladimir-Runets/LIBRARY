@@ -34,7 +34,7 @@
     <!-- Без создания новой вкладки -->
     <!-- <button onclick="location.href='read.html'">Продолжить прочтение</button> -->
     <!-- Новая вкладка -->
-    <button onclick="window.open('#')">Продолжить прочтение</button>
+    <button onclick="window.open('BookReading.jsp ')">Продолжить прочтение</button>
 </form>
 <a1><button class="menu__item_button" onclick="window.location.href='Genre.jsp  '" >Сказки</button></a1>
 <a2><button class="menu__item_button" onclick="window.location.href='Genre.jsp '">Романы</button></a2>

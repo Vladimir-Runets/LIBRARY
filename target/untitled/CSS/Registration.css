@@ -1,10 +1,17 @@
+body {
+  background-color: grey;
+}
+
 #reg_header{
+
+  color: white;
   text-align: center;
-  font-size: 24px;
+  font-size: 44px;
   margin-bottom: 20px;
 }
 
 #registration-form{
+  background-color: whitesmoke;
   width: 50%;
   margin: 50px auto;
   padding: 20px;

@@ -51,6 +51,7 @@ public class UserDAO implements GenericDAO<Integer, User> {
             return entity;
         }
     }
+
     public Optional<User> findByEmailAndPassword(String login, String password) {
         try(var connection = ConnectionManager.get();
             var preparedStatement = connection.prepareStatement(GET_BY_EMAIL_AND_PASSWORD_SQL)) {
@@ -69,7 +70,7 @@ public class UserDAO implements GenericDAO<Integer, User> {
         }
     }
 
-    private User buildEntity(ResultSet resultSet) throws java.sql.SQLException{
+    private User buildEntity(ResultSet resultSet) throws SQLException{
         return User.builder()
                 .UserID(resultSet.getObject("user_id", Integer.class))
                 .login(resultSet.getObject("login", String.class))
