@@ -39,7 +39,7 @@ Deploy Diagram
 
 Sequence Diagram
 
-![seq_diagram_2](https://github.com/Vladimir-Runets/LIBRARY/assets/91636520/bf46e33f-16e2-4371-ba7f-b6aa44df8bf3)
+![seq_diagram_2](https://github.com/Vladimir-Runets/LIBRARY/assets/91636520/9dbd8a4e-383f-41f9-8dc1-6ffad7c56121)
 
 Контактная информация:
 
