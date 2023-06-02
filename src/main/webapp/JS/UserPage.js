@@ -35,11 +35,6 @@ function handleFileUpload(event) {
     var formData = new FormData();
     formData.append('file', file);
 
-    // Отправить файл на сервер или внешний сервис, например, Google Диск
-    // Здесь вы можете использовать AJAX-запрос или другие методы отправки данных
-    // для загрузки файла и получения ссылки на него
-
-    // Пример AJAX-запроса на сервер
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/upload-file', true);
     xhr.onload = function() {

@@ -1,6 +1,6 @@
 package by.fpmibsu.LIBRARY.validator;
 
-import by.fpmibsu.LIBRARY.DTO.CreateUserDto;
+import by.fpmibsu.LIBRARY.dto.CreateUserDto;
 
 public class CreateUserValidator implements Validator<CreateUserDto>{
 

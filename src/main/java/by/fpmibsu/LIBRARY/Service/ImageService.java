@@ -1,4 +1,4 @@
-package by.fpmibsu.LIBRARY.Service;
+package by.fpmibsu.LIBRARY.service;
 import by.fpmibsu.LIBRARY.util.PropertiesUtil;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;

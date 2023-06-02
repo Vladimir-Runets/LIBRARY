@@ -1,10 +1,11 @@
-package by.fpmibsu.LIBRARY.DAO;
+package by.fpmibsu.LIBRARY.dao;
 
 import java.sql.*;
 import java.util.Optional;
 
+import by.fpmibsu.LIBRARY.pool.ConnectionPool;
 import by.fpmibsu.LIBRARY.entity.User;
-import by.fpmibsu.LIBRARY.util.ConnectionManager;
+import by.fpmibsu.LIBRARY.exception.PersistentException;
 import lombok.SneakyThrows;
 
 public class UserDAO implements GenericDAO<Integer, User> {
@@ -36,7 +37,8 @@ public class UserDAO implements GenericDAO<Integer, User> {
     @Override
     @SneakyThrows
     public User save(User entity){
-        try(var connection = ConnectionManager.get();
+//        try(var connection = ConnectionManager.get();
+        try(Connection connection=ConnectionPool.getInstance().getConnection();
         var preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, entity.getLogin());
             preparedStatement.setObject(2, entity.getPassword());
@@ -53,7 +55,7 @@ public class UserDAO implements GenericDAO<Integer, User> {
     }
 
     public Optional<User> findByEmailAndPassword(String login, String password) {
-        try(var connection = ConnectionManager.get();
+        try(Connection connection=ConnectionPool.getInstance().getConnection();
             var preparedStatement = connection.prepareStatement(GET_BY_EMAIL_AND_PASSWORD_SQL)) {
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, password);
@@ -65,7 +67,7 @@ public class UserDAO implements GenericDAO<Integer, User> {
             }
 
             return Optional.ofNullable(user);
-        } catch (SQLException e) {
+        } catch (SQLException | PersistentException e) {
             throw new RuntimeException(e);
         }
     }

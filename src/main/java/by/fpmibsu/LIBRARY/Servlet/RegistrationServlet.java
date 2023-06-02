@@ -1,7 +1,7 @@
-package by.fpmibsu.LIBRARY.Servlet;
+package by.fpmibsu.LIBRARY.servlet;
 
-import by.fpmibsu.LIBRARY.DTO.CreateUserDto;
-import by.fpmibsu.LIBRARY.Service.UserService;
+import by.fpmibsu.LIBRARY.dto.CreateUserDto;
+import by.fpmibsu.LIBRARY.service.UserService;
 import by.fpmibsu.LIBRARY.exception.ValidationException;
 import by.fpmibsu.LIBRARY.util.JspHelper;
 
@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.security.URIParameter;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.xml.sax.ErrorHandler;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
@@ -38,6 +36,8 @@ public class RegistrationServlet extends HttpServlet {
                 .build();
         try {
             userService.create(userDto);
+            req.setAttribute("user", userDto.getLogin());
+            req.getRequestDispatcher("/JSP/UserPage.jsp").forward(req, resp);
             resp.sendRedirect("/JSP/UserPage.jsp");
         }catch (ValidationException exception){
             req.setAttribute("errors",exception.getErrors());

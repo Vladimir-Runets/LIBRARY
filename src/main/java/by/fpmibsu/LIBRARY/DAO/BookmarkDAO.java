@@ -1,4 +1,4 @@
-package by.fpmibsu.LIBRARY.DAO;
+package by.fpmibsu.LIBRARY.dao;
 
 import by.fpmibsu.LIBRARY.entity.Bookmark;
 

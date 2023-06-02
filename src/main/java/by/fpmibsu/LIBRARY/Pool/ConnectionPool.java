@@ -1,4 +1,4 @@
-package by.fpmibsu.LIBRARY.Pool;
+package by.fpmibsu.LIBRARY.pool;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 final public class ConnectionPool {
     private static Logger logger = LogManager.getLogger(ConnectionPool.class);
+    private boolean initialized=false;
 
     private String url;
     private String user;
@@ -72,6 +73,9 @@ final public class ConnectionPool {
     }
 
     public synchronized void init(String driverClass, String url, String user, String password, int startSize, int maxSize, int checkConnectionTimeout) throws PersistentException {
+        if(initialized){
+            return;
+        }
         try {
             destroy();
             Class.forName(driverClass);
@@ -115,4 +119,3 @@ final public class ConnectionPool {
         destroy();
     }
 }
-

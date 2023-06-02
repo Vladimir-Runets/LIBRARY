@@ -1,4 +1,4 @@
-package by.fpmibsu.LIBRARY.DTO;
+package by.fpmibsu.LIBRARY.dto;
 
 import lombok.Builder;
 import lombok.Value;

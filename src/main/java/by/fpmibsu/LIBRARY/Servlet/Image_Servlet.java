@@ -1,8 +1,6 @@
-package by.fpmibsu.LIBRARY.Servlet;
-import by.fpmibsu.LIBRARY.Service.ImageService;
-import by.fpmibsu.LIBRARY.Service.LiteratureService;
-import by.fpmibsu.LIBRARY.util.JspHelper;
-import lombok.SneakyThrows;
+package by.fpmibsu.LIBRARY.servlet;
+import by.fpmibsu.LIBRARY.service.ImageService;
+import by.fpmibsu.LIBRARY.service.LiteratureService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 @WebServlet("/images")

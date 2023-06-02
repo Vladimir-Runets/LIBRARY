@@ -1,4 +1,4 @@
-package by.fpmibsu.LIBRARY.Pool;
+package by.fpmibsu.LIBRARY.pool;
 
 
 import java.sql.Array;

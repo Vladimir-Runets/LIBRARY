@@ -8,16 +8,23 @@
 <body>
 <%
     String prevPage = request.getHeader("Referer");
-    if(prevPage != null && prevPage.endsWith("Registration.jsp")){
+    String user = (String) request.getAttribute("user");
 %>
 <div class="success-message">
-    <img class="im_success" src="../Images/green-tick.gif" alt="Success"  width="300" height=auto top="30%" left="50%">
     <button class="close-button"  onclick="closeForm()" >×</button>
-    <p class="text-of-success">Регистрация выполнена успешно!</p>
+    <p class="text-of-success">Привет <%= user %></p>
 </div>
-<%
-    }
-%>
+<%--<%--%>
+<%--    if(prevPage != null && prevPage.endsWith("Registration.jsp")){--%>
+<%--%>--%>
+<%--<div class="success-message">--%>
+<%--    <img class="im_success" src="../Images/green-tick.gif" alt="Success"  width="300" height=auto top="30%" left="50%">--%>
+<%--    <button class="close-button"  onclick="closeForm()" >×</button>--%>
+<%--    <p class="text-of-success">Регистрация выполнена успешно!</p>--%>
+<%--</div>--%>
+<%--<%--%>
+<%--    }--%>
+<%--%>--%>
 <!--<a href="javascript:history.back()"><img src="ctrelka.png"> </a>-->
 <div class="hamburger-menu">
     <input id="menu__toggle" type="checkbox" />

@@ -1,6 +1,6 @@
 package by.fpmibsu.LIBRARY.mapper;
 
-import by.fpmibsu.LIBRARY.DTO.UserDto;
+import by.fpmibsu.LIBRARY.dto.UserDto;
 import by.fpmibsu.LIBRARY.entity.User;
 import lombok.NoArgsConstructor;
 import static lombok.AccessLevel.PRIVATE;

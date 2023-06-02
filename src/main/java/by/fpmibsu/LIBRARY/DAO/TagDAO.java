@@ -1,12 +1,13 @@
-package by.fpmibsu.LIBRARY.DAO;
+package by.fpmibsu.LIBRARY.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import by.fpmibsu.LIBRARY.pool.ConnectionPool;
 import by.fpmibsu.LIBRARY.entity.Tag;
-import by.fpmibsu.LIBRARY.util.ConnectionManager;
+import by.fpmibsu.LIBRARY.exception.PersistentException;
 import lombok.SneakyThrows;
 
 public class TagDAO implements GenericDAO<Integer, Tag> {
@@ -37,15 +38,15 @@ public class TagDAO implements GenericDAO<Integer, Tag> {
     }
 
     public List<Tag> findAll(){
-        try(var connection = ConnectionManager.get();
-            var preparedStatement = connection.prepareStatement(FIND_ALL)) {
+        try(Connection connection= ConnectionPool.getInstance().getConnection();
+           var preparedStatement = connection.prepareStatement(FIND_ALL)) {
             var resultSet = preparedStatement.executeQuery();
             List<Tag> allLiterature = new ArrayList<>();
             while (resultSet.next()){
                 allLiterature.add(buildTag(resultSet));
             }
             return allLiterature;
-        } catch (SQLException e) {
+        } catch (SQLException | PersistentException e) {
             throw new RuntimeException(e);
         }
     }
@@ -60,7 +61,7 @@ public class TagDAO implements GenericDAO<Integer, Tag> {
     @Override
     @SneakyThrows
     public Tag save(Tag entity){
-        try(var connection = ConnectionManager.get();
+        try(Connection connection=ConnectionPool.getInstance().getConnection();
             var preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, entity.getCategory());
             preparedStatement.executeUpdate();

@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
+<Configuration status="Debug">
+
+<!--  all->trace->debug->info->warn->error->fatal->off-->
+    <Properties>
+        <property name="pattern_file">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{5} - %msg%n
+        </property>
+        <property name="pattern_short">%d{HH:mm:ss} %-5level %logger{5} - %msg%n
+        </property>
+    </Properties>
+
     <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout disableAnsi="false"  pattern="%highlight{%d{HH:mm:ss.SSS} [%-5level] %logger{36}.%M() @%L - %msg%n}{FATAL=red blink, ERROR=blue, WARN=yellow bold, INFO=black, DEBUG=green bold, TRACE=blue}"/>
-        </Console>
-        <File name="MyFile" fileName="./logs/BielRent.log">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level - [%c{1}]:%L - %msg%n"/>
+        <File name="LogFile" fileName="logs/Library.log" bufferedIO="true">
+            <PatternLayout pattern="${pattern_file}"/>
         </File>
     </Appenders>
+
     <Loggers>
         <Root level="info">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="MyFile"/>
+            <AppenderRef ref="LogFile"/>
         </Root>
     </Loggers>
+
 </Configuration>

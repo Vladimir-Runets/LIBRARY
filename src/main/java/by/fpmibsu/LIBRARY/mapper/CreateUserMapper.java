@@ -1,6 +1,6 @@
 package by.fpmibsu.LIBRARY.mapper;
 
-import by.fpmibsu.LIBRARY.DTO.CreateUserDto;
+import by.fpmibsu.LIBRARY.dto.CreateUserDto;
 import by.fpmibsu.LIBRARY.entity.User;
 
 public class CreateUserMapper implements Mapper<CreateUserDto, User> {

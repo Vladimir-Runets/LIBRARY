@@ -1,8 +1,8 @@
-package by.fpmibsu.LIBRARY.Service;
+package by.fpmibsu.LIBRARY.service;
 
-import by.fpmibsu.LIBRARY.DAO.UserDAO;
-import by.fpmibsu.LIBRARY.DTO.CreateUserDto;
-import by.fpmibsu.LIBRARY.DTO.UserDto;
+import by.fpmibsu.LIBRARY.dao.UserDAO;
+import by.fpmibsu.LIBRARY.dto.CreateUserDto;
+import by.fpmibsu.LIBRARY.dto.UserDto;
 import by.fpmibsu.LIBRARY.exception.ValidationException;
 import by.fpmibsu.LIBRARY.mapper.CreateUserMapper;
 import by.fpmibsu.LIBRARY.mapper.UserMapper;

@@ -1,4 +1,4 @@
-package by.fpmibsu.LIBRARY.DTO;
+package by.fpmibsu.LIBRARY.dto;
 
 import java.awt.*;
 

@@ -1,7 +1,7 @@
-package by.fpmibsu.LIBRARY.Service;
+package by.fpmibsu.LIBRARY.service;
 
-import by.fpmibsu.LIBRARY.DAO.LiteratureDAO;
-import by.fpmibsu.LIBRARY.DTO.LiteratureDto;
+import by.fpmibsu.LIBRARY.dao.LiteratureDAO;
+import by.fpmibsu.LIBRARY.dto.LiteratureDto;
 import by.fpmibsu.LIBRARY.entity.Literature;
 
 import java.util.List;

@@ -1,12 +1,13 @@
-package by.fpmibsu.LIBRARY.DAO;
+package by.fpmibsu.LIBRARY.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import by.fpmibsu.LIBRARY.pool.ConnectionPool;
 import by.fpmibsu.LIBRARY.entity.Literature;
-import by.fpmibsu.LIBRARY.util.ConnectionManager;
+import by.fpmibsu.LIBRARY.exception.PersistentException;
 import lombok.SneakyThrows;
 
 public class LiteratureDAO implements GenericDAO<Integer, Literature> {
@@ -37,7 +38,7 @@ public class LiteratureDAO implements GenericDAO<Integer, Literature> {
     }
 
     public List<Literature> findAll(){
-        try(var connection = ConnectionManager.get();
+        try(Connection connection= ConnectionPool.getInstance().getConnection();
             var preparedStatement = connection.prepareStatement(FIND_ALL)) {
             var resultSet = preparedStatement.executeQuery();
             List<Literature> allLiterature = new ArrayList<>();
@@ -45,7 +46,7 @@ public class LiteratureDAO implements GenericDAO<Integer, Literature> {
                 allLiterature.add(buildLiterature(resultSet));
             }
             return allLiterature;
-        } catch (SQLException e) {
+        } catch (SQLException | PersistentException e) {
             throw new RuntimeException(e);
         }
     }
@@ -66,7 +67,7 @@ public class LiteratureDAO implements GenericDAO<Integer, Literature> {
     @Override
     @SneakyThrows
     public Literature save(Literature entity){
-        try(var connection = ConnectionManager.get();
+        try(Connection connection=ConnectionPool.getInstance().getConnection();
             var preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setObject(1, entity.getTitle());
             preparedStatement.setObject(2, entity.getAuthor());
