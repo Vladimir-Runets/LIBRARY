@@ -31,7 +31,7 @@ Use Case Diagram
 
 Class Diagram
 
-![image](https://github.com/Vladimir-Runets/LIBRARY/assets/108408528/443ee5f1-c79e-4a1d-be29-9e5f96e8c62a)
+![project_structure](https://github.com/Vladimir-Runets/LIBRARY/assets/108408528/de6de2da-00fa-45d4-9e7f-8dacab7bf312)
 
 
 Контактная информация:
