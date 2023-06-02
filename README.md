@@ -35,7 +35,7 @@ Class Diagram
 
 Deploy Diagram
 
-![deploy_diagram](https://github.com/Vladimir-Runets/LIBRARY/assets/91636520/5383321a-337f-4186-8885-6b19ea8027fd)
+![deploy_diagram](https://github.com/Vladimir-Runets/LIBRARY/assets/91636520/224b2bed-e183-4a53-8a0f-ce000ed73967)
 
 Sequence Diagram
 
