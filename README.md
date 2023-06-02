@@ -33,6 +33,13 @@ Class Diagram
 
 ![project_structure](https://github.com/Vladimir-Runets/LIBRARY/assets/108408528/de6de2da-00fa-45d4-9e7f-8dacab7bf312)
 
+Deploy Diagram
+
+![deploy_diagram](https://github.com/Vladimir-Runets/LIBRARY/assets/91636520/5383321a-337f-4186-8885-6b19ea8027fd)
+
+Sequence Diagram
+
+![seq_diagram_2](https://github.com/Vladimir-Runets/LIBRARY/assets/91636520/bf46e33f-16e2-4371-ba7f-b6aa44df8bf3)
 
 Контактная информация:
 
